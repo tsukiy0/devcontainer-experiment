@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - ..:/workspace:cached
+    environment:
+      DYNAMODB_LOCAL_ENDPOINT: http://dynamodb_local:8000
+    command: sleep infinity
+    network_mode: service:dynamodb_local
+  dynamodb_local:
+    image: amazon/dynamodb-local:latest

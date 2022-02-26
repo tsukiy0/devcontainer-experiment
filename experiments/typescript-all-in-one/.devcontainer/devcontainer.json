@@ -1,0 +1,24 @@
+{
+    "name": "typescript-all-in-one",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "settings": {
+        "terminal.integrated.shell.*": "zsh"
+    },
+    "extensions": [
+        "dbaeumer.vscode-eslint",
+        "github.copilot"
+    ],
+    "remoteUser": "node",
+    "forwardPorts": [
+        8080
+    ],
+    "hostRequirements": {
+        "cpus": 2,
+        "memory": "4gb"
+    },
+    "features": {
+        "docker-in-docker": "latest"
+    }
+}
