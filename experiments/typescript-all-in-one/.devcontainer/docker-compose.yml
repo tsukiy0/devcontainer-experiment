@@ -11,9 +11,16 @@ services:
       - SYS_PTRACE
     volumes:
       - ..:/workspace:cached
+    networks:
+      - default
+    depends_on:
+      - dynamodb_local
     environment:
       DYNAMODB_LOCAL_ENDPOINT: http://dynamodb_local:8000
     command: sleep infinity
-    network_mode: service:dynamodb_local
   dynamodb_local:
     image: amazon/dynamodb-local:latest
+    networks:
+      - default
+networks:
+  default:
