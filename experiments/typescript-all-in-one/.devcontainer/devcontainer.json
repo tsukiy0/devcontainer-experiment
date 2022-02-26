@@ -4,6 +4,7 @@
     "service": "app",
     "workspaceFolder": "/workspace",
     "settings": {
+        "typescript.tsdk": "typescript-all-in-one/node_modules/typescript/lib",
         "terminal.integrated.shell.*": "zsh"
     },
     "extensions": [
