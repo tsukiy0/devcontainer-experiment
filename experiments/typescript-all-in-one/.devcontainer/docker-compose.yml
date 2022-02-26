@@ -14,13 +14,31 @@ services:
     networks:
       - default
     depends_on:
-      - dynamodb_local
+      - dynamodb
+      - pg
     environment:
-      DYNAMODB_LOCAL_ENDPOINT: http://dynamodb_local:8000
+      DYNAMODB_ENDPOINT: http://dynamodb:8000
+      PG_CONNECTION_STRING: postgres://postgres:postgres@pg:5432/postgres?sslmode=disable
     command: sleep infinity
-  dynamodb_local:
+  dynamodb:
     image: amazon/dynamodb-local:latest
     networks:
       - default
+  pg:
+    image: postgres
+    networks:
+      - default
+    environment:
+      POSTGRES_PASSWORD: postgres
+  pgweb:
+    image: sosedoff/pgweb
+    ports:
+      - 5433:8081
+    networks:
+      - default
+    depends_on:
+      - pg
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@pg:5432/postgres?sslmode=disable
 networks:
   default:
