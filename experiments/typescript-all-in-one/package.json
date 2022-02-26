@@ -1,19 +1,26 @@
 {
   "name": "typescript-all-in-one",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
+    "start": "node .",
     "lint": "eslint \"./src/**/*.ts\"",
     "typecheck": "tsc --noEmit",
+    "prebuild": "rm -rf dist",
     "build": "tsc --outDir dist"
   },
   "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.21",
     "eslint": "^8.10.0",
     "eslint-config-next": "^12.1.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.5.1",
     "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
   }
 }
