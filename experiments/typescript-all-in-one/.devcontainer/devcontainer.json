@@ -15,10 +15,6 @@
     "forwardPorts": [
         8080
     ],
-    "hostRequirements": {
-        "cpus": 2,
-        "memory": "4gb"
-    },
     "features": {
         "docker-in-docker": "latest"
     }
