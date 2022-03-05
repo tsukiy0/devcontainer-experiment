@@ -1,7 +1,7 @@
 {
     "name": "typescript-all-in-one",
     "dockerComposeFile": "docker-compose.yml",
-    "service": "app",
+    "service": "main",
     "workspaceFolder": "/workspace",
     "settings": {
         "typescript.tsdk": "typescript-all-in-one/node_modules/typescript/lib",
@@ -10,10 +10,6 @@
     "extensions": [
         "dbaeumer.vscode-eslint",
         "github.copilot"
-    ],
-    "remoteUser": "node",
-    "forwardPorts": [
-        8080
     ],
     "features": {
         "docker-in-docker": "latest"
